@@ -57,3 +57,29 @@ print('Extra charges:', extra_charges)
 # else:
 #     print('Ticket booking failed due to restrictions')
 
+
+# step 16 
+# if age >= 21 or age >= 18 and show_time != 'Evening':
+#     print('Ticket booking condition satisfied')
+# else:
+#     print('Ticket booking failed due to restrictions')
+
+
+if age >= 21 or age >= 18 and (show_time != 'Evening' or is_member):
+    print('Ticket booking condition satisfied')
+
+    service_charges = 0
+    if seat_type == 'Premium':
+        service_charges = 5
+    elif seat_type == 'Gold':
+        service_charges = 3
+    else:
+        service_charges = 1
+    print('Service charges:', service_charges)
+
+    final_price = base_price + extra_charges + service_charges - discount
+    print('Final price of ticket:', final_price)
+
+    
+else:
+    print('Ticket booking failed due to restrictions')
