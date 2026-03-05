@@ -2,35 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Responsive design support -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markdown to HTML Converter</title>
+
+  <title>Markdown Converter</title>
+
+  <!-- Google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<h1>Markdown to HTML Converter</h1>
+<!--  HEADER -->
+<header>
 
-<div id="container">
+  <h1>Markdown → HTML Converter</h1>
 
-  <div class="container">
-    <h2>Markdown Input:</h2>
-    <textarea id="markdown-input" placeholder="Write markdown here..."></textarea>
+  
+</header>
+
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+
+  <!--  Markdown Input Section -->
+  <div class="card">
+
+    <h2>Markdown Input</h2>
+
+    <!-- User markdown input -->
+    <textarea 
+      id="markdown-input"
+      placeholder="Write markdown here... Example: # Hello">
+    </textarea>
+
+    <!-- Buttons -->
+    <div class="buttons">
+
+      <button id="convert-btn">
+        Convert
+      </button>
+
+      <button id="clear-btn">
+        Clear
+      </button>
+
+    </div>
+
   </div>
 
-  <div class="container">
-    <h2>Raw HTML Output:</h2>
-    <div id="html-output"></div>
+
+
+  <!--Raw HTML Output  -->
+  <div class="card">
+
+    <h2>HTML Code</h2>
+
+    <!-- Converted HTML code -->
+    <pre id="html-output"></pre>
+
+    <!-- Copy Button -->
+    <button id="copy-btn">
+      Copy HTML
+    </button>
+
   </div>
 
-  <div class="container">
-    <h2>HTML Preview:</h2>
+
+
+  <!--  Preview Section  -->
+  <div class="card">
+
+    <h2>Live Preview</h2>
+
+    <!-- Browser rendered HTML -->
     <div id="preview"></div>
+
   </div>
 
 </div>
 
+
+<!-- Footer -->
+<footer>
+  <p>Made by Hafizur Rahman</p>
+</footer>
+
+
+<!-- JavaScript File -->
 <script src="script.js"></script>
 
 </body>

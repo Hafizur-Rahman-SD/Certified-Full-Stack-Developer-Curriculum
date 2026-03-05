@@ -1,52 +1,131 @@
-function convertMarkdown() {
 
-  let text = document.getElementById("markdown-input").value;
+function convertMarkdown(){
 
-  // heading level 3
-  text = text.replace(/^### (.*)$/gm, "<h3>$1</h3>");
+  // Get user input
+  let text =
+  document.getElementById("markdown-input").value;
 
-  // heading level 2
-  text = text.replace(/^## (.*)$/gm, "<h2>$1</h2>");
 
-  // heading level 1
-  text = text.replace(/^# (.*)$/gm, "<h1>$1</h1>");
+  // Heading level 3
+  text = text.replace(
+    /^### (.*)$/gm,
+    "<h3>$1</h3>"
+  );
 
-  // images
-  text = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img alt="$1" src="$2">');
+  // Heading level 2
+  text = text.replace(
+    /^## (.*)$/gm,
+    "<h2>$1</h2>"
+  );
 
-  // links
-  text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+  // Heading level 1
+  text = text.replace(
+    /^# (.*)$/gm,
+    "<h1>$1</h1>"
+  );
 
-  // bold **text**
-  text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  // Bold **text**
+  text = text.replace(
+    /\*\*(.*?)\*\*/g,
+    "<strong>$1</strong>"
+  );
 
-  // bold __text__
-  text = text.replace(/__(.*?)__/g, "<strong>$1</strong>");
+  // Italic *text*
+  text = text.replace(
+    /\*(.*?)\*/g,
+    "<em>$1</em>"
+  );
 
-  // italic *text*
-  text = text.replace(/\*(.*?)\*/g, "<em>$1</em>");
+  // Links
+  text = text.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2">$1</a>'
+  );
 
-  // italic _text_
-  text = text.replace(/_(.*?)_/g, "<em>$1</em>");
+  // Images
+  text = text.replace(
+    /!\[(.*?)\]\((.*?)\)/g,
+    '<img src="$2" alt="$1">'
+  );
 
-  // quote
-  text = text.replace(/^> (.*)$/gm, "<blockquote>$1</blockquote>");
-
-  // remove newline
-  text = text.replace(/\n/g, "");
+  // Blockquote
+  text = text.replace(
+    /^> (.*)$/gm,
+    "<blockquote>$1</blockquote>"
+  );
 
   return text;
 }
 
 
+
+//  Convert Button 
 document
+.getElementById("convert-btn")
+.onclick = function(){
+
+  let html = convertMarkdown();
+
+  // Show HTML code
+  document
+  .getElementById("html-output")
+  .textContent = html;
+
+  // Show preview
+  document
+  .getElementById("preview")
+  .innerHTML = html;
+
+};
+
+
+
+//  Clear Button
+
+document
+.getElementById("clear-btn")
+.onclick = function(){
+
+  document
   .getElementById("markdown-input")
-  .addEventListener("input", function () {
+  .value = "";
 
-    let html = convertMarkdown();
+  document
+  .getElementById("html-output")
+  .textContent = "";
 
-    document.getElementById("html-output").textContent = html;
+  document
+  .getElementById("preview")
+  .innerHTML = "";
 
-    document.getElementById("preview").innerHTML = html;
+};
 
-  });
+
+
+//Copy HTML Button 
+
+document
+.getElementById("copy-btn")
+.onclick = function(){
+
+  let html =
+  document.getElementById("html-output")
+  .textContent;
+
+  navigator.clipboard.writeText(html);
+
+  alert("HTML copied!");
+
+};
+
+
+
+// Dark Mode Toggle 
+
+document
+.getElementById("theme-toggle")
+.onclick = function(){
+
+  document.body.classList.toggle("light");
+
+};

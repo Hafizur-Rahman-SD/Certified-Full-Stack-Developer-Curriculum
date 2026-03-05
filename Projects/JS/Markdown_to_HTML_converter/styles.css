@@ -1,38 +1,191 @@
+/* ===== Global Styles ===== */
+
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
 body{
-  font-family: Arial, sans-serif;
+  font-family:'Poppins',sans-serif;
+
+  /* background color */
+  background:#0f172a;
+
+  color:white;
+
   padding:20px;
 }
 
-#markdown-input{
-  width:100%;
-  height:120px;
+
+/* ===== Header ===== */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:30px;
 }
 
-#html-output,
-#preview{
+header h1{
+  font-size:28px;
+}
+
+
+/* Toggle button */
+
+#theme-toggle{
+  padding:8px 14px;
+  border:none;
+  background:#3b82f6;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+
+
+/* ===== Main Container ===== */
+
+.container{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr 1fr;
+
+  gap:20px;
+
+}
+
+
+/* ===== Card Layout ===== */
+
+.card{
+
+  background:#1e293b;
+
+  padding:20px;
+
+  border-radius:10px;
+
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
+
+}
+
+.card h2{
+  margin-bottom:10px;
+}
+
+
+/* ===== Textarea ===== */
+
+textarea{
+
   width:100%;
-  height:120px;
-  border:1px solid #ccc;
+
+  height:200px;
+
   padding:10px;
-  background:#f9f9f9;
-  white-space:pre-wrap;
+
+  border:none;
+
+  border-radius:6px;
+
+  resize:none;
+
 }
 
-@media (min-width:600px){
 
-  #container{
-    display:flex;
-    gap:10px;
-  }
+/* ===== HTML Output ===== */
 
-  #markdown-input,
-  #html-output,
-  #preview{
-    height:200px;
+#html-output{
+
+  background:#111827;
+
+  padding:10px;
+
+  min-height:200px;
+
+  overflow:auto;
+
+}
+
+
+/* ===== Preview ===== */
+
+#preview{
+
+  background:white;
+
+  color:black;
+
+  padding:10px;
+
+  min-height:200px;
+
+}
+
+
+
+/* ===== Buttons ===== */
+
+.buttons{
+
+  margin-top:10px;
+
+  display:flex;
+
+  gap:10px;
+
+}
+
+button{
+
+  padding:8px 14px;
+
+  border:none;
+
+  border-radius:6px;
+
+  background:#3b82f6;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+button:hover{
+
+  background:#2563eb;
+
+}
+
+
+
+/* ===== Footer ===== */
+
+footer{
+
+  margin-top:30px;
+
+  text-align:center;
+
+  opacity:0.7;
+
+}
+
+
+
+/* ===== Responsive Design ===== */
+
+@media(max-width:900px){
+
+  .container{
+
+    grid-template-columns:1fr;
+
   }
 
 }
