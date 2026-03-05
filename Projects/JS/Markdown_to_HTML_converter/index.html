@@ -1,100 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <!-- Responsive design support -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Markdown Converter</title>
-
-  <!-- Google Font-->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown live · smart editor</title>
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Font (optional but included in CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <header>
+        <h1>⌨️ Markdown live editor</h1>
+        <button id="toggle-theme">🌓 Dark / light</button>
+    </header>
 
-<!--  HEADER -->
-<header>
+    <main>
+        <!-- Editor Section + Toolbar -->
+        <section class="card">
+            <h2>✍️ Markdown input</h2>
+            <textarea id="markdown-input" placeholder="# Hello world!  
+**bold** or *italic*  
+[link](https://example.com)  
+> quote ..."># My Project
+**Bold Text**  
+*Italic Text*  
+[Google](https://google.com)  
+![Cat](https://via.placeholder.com/100)  
+> Sample quote</textarea>
 
-  <h1>Markdown → HTML Converter</h1>
+            <!-- Toolbar with actions -->
+            <div class="toolbar">
+                <button data-action="h1">H1</button>
+                <button data-action="h2">H2</button>
+                <button data-action="h3">H3</button>
+                <button data-action="bold"><b>B</b></button>
+                <button data-action="italic"><i>I</i></button>
+                <button data-action="link">Link</button>
+                <button data-action="image">Image</button>
+                <button data-action="quote">Quote</button>
+                <button id="clear">Clear</button>
+            </div>
+        </section>
 
-  
-</header>
+        <!-- Output: raw HTML -->
+        <section class="card">
+            <h2>🔎 Raw HTML output</h2>
+            <div id="html-output" aria-label="raw html"></div>
+        </section>
 
+        <!-- Preview: rendered -->
+        <section class="card">
+            <h2>🖼️ Live preview</h2>
+            <div id="preview"></div>
+        </section>
 
-<!-- MAIN CONTAINER -->
-<div class="container">
+        <!-- Cheatsheet Card -->
+        <section class="card">
+            <h2>📘 Markdown cheatsheet</h2>
+            <ul>
+                <li><code># H1</code> → # Heading 1</li>
+                <li><code>## H2</code> → ## Heading 2</li>
+                <li><code>### H3</code> → ### Heading 3</li>
+                <li><code>**bold**</code> → <b>bold</b></li>
+                <li><code>*italic*</code> → <i>italic</i></li>
+                <li><code>[text](URL)</code> → <a href="#">link</a></li>
+                <li><code>![alt](src)</code> → image</li>
+                <li><code>&gt; quote</code> → blockquote</li>
+            </ul>
+        </section>
 
+        <!-- Example input/output -->
+        <section class="card">
+            <h2>📋 Example</h2>
+            <p><strong>Input markdown:</strong></p>
+            <pre># My Project
+**Bold Text**
+*Italic Text*
+[Google](https://google.com)
+![Cat](https://via.placeholder.com/100)
+> Sample quote</pre>
+            <p><strong>Preview:</strong></p>
+            <div class="example-preview">
+                <h1>My Project</h1>
+                <strong>Bold Text</strong><br>
+                <em>Italic Text</em><br>
+                <a href="https://google.com">Google</a><br>
+                <img src="https://via.placeholder.com/100" alt="Cat">
+                <blockquote>Sample quote</blockquote>
+            </div>
+        </section>
 
-  <!--  Markdown Input Section -->
-  <div class="card">
-
-    <h2>Markdown Input</h2>
-
-    <!-- User markdown input -->
-    <textarea 
-      id="markdown-input"
-      placeholder="Write markdown here... Example: # Hello">
-    </textarea>
-
-    <!-- Buttons -->
-    <div class="buttons">
-
-      <button id="convert-btn">
-        Convert
-      </button>
-
-      <button id="clear-btn">
-        Clear
-      </button>
-
-    </div>
-
-  </div>
-
-
-
-  <!--Raw HTML Output  -->
-  <div class="card">
-
-    <h2>HTML Code</h2>
-
-    <!-- Converted HTML code -->
-    <pre id="html-output"></pre>
-
-    <!-- Copy Button -->
-    <button id="copy-btn">
-      Copy HTML
-    </button>
-
-  </div>
-
-
-
-  <!--  Preview Section  -->
-  <div class="card">
-
-    <h2>Live Preview</h2>
-
-    <!-- Browser rendered HTML -->
-    <div id="preview"></div>
-
-  </div>
-
-</div>
-
-
-<!-- Footer -->
-<footer>
-  <p>Made by Hafizur Rahman</p>
-</footer>
-
-
-<!-- JavaScript File -->
-<script src="script.js"></script>
-
+        <!-- Contact -->
+        <section class="card">
+            <h2>📬 Contact</h2>
+            <p>GitHub: <a href="https://github.com/Hafizur-Rahman-SD" target="_blank">Hafizur-Rahman-SD</a></p>
+        </section>
+    </main>
+    
+<script>script.js</script>
 </body>
 </html>
