@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bank Account Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Bank Account Manager</h1>
+
+<div class="card">
+
+<h2>Deposit Money</h2>
+<input type="number" id="depositAmount" placeholder="Enter amount">
+<button onclick="depositMoney()">Deposit</button>
+
+</div>
+
+<div class="card">
+
+<h2>Withdraw Money</h2>
+<input type="number" id="withdrawAmount" placeholder="Enter amount">
+<button onclick="withdrawMoney()">Withdraw</button>
+
+</div>
+
+<div class="card">
+
+<h2>Account Balance</h2>
+<button onclick="checkBalance()">Check Balance</button>
+<p id="balanceResult"></p>
+
+</div>
+
+<div class="card">
+
+<h2>Transactions</h2>
+<button onclick="showDeposits()">Show Deposits</button>
+<button onclick="showWithdrawals()">Show Withdrawals</button>
+
+<p id="transactionResult"></p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
