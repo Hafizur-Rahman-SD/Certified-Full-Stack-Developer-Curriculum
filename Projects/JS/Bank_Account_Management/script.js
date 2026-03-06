@@ -1,64 +1,108 @@
-class BankAccount {
+class BankAccount{
 
-  constructor() {
-    this.balance = 0;
-    this.transactions = [];
-  }
+constructor(){
 
-  deposit(amount) {
-
-    if (amount <= 0) {
-      return "Deposit amount must be greater than zero.";
-    }
-
-    this.transactions.push({ type: "deposit", amount: amount });
-    this.balance += amount;
-
-    return `Successfully deposited $${amount}. New balance: $${this.balance}`;
-  }
-
-  withdraw(amount) {
-
-    if (amount <= 0 || amount > this.balance) {
-      return "Insufficient balance or invalid amount.";
-    }
-
-    this.transactions.push({ type: "withdraw", amount: amount });
-    this.balance -= amount;
-
-    return `Successfully withdrew $${amount}. New balance: $${this.balance}`;
-  }
-
-  checkBalance() {
-    return `Current balance: $${this.balance}`;
-  }
-
-  listAllDeposits() {
-
-    const deposits = this.transactions
-      .filter(t => t.type === "deposit")
-      .map(t => t.amount);
-
-    return `Deposits: ${deposits.join(",")}`;
-  }
-
-  listAllWithdrawals() {
-
-    const withdrawals = this.transactions
-      .filter(t => t.type === "withdraw")
-      .map(t => t.amount);
-
-    return `Withdrawals: ${withdrawals.join(",")}`;
-  }
+this.balance = 0
+this.transactions = []
 
 }
 
+deposit(amount){
 
-const myAccount = new BankAccount();
+if(amount <= 0){
+return "Deposit amount must be greater than zero."
+}
+
+this.transactions.push({type:"deposit",amount:amount})
+this.balance += amount
+
+return `Successfully deposited $${amount}. New balance: $${this.balance}`
+
+}
+
+withdraw(amount){
+
+if(amount <= 0 || amount > this.balance){
+return "Insufficient balance or invalid amount."
+}
+
+this.transactions.push({type:"withdraw",amount:amount})
+this.balance -= amount
+
+return `Successfully withdrew $${amount}. New balance: $${this.balance}`
+
+}
+
+checkBalance(){
+
+return `Current balance: $${this.balance}`
+
+}
+
+listAllDeposits(){
+
+const deposits = this.transactions
+.filter(t => t.type === "deposit")
+.map(t => t.amount)
+
+return `Deposits: ${deposits.join(",")}`
+
+}
+
+listAllWithdrawals(){
+
+const withdrawals = this.transactions
+.filter(t => t.type === "withdraw")
+.map(t => t.amount)
+
+return `Withdrawals: ${withdrawals.join(",")}`
+
+}
+
+}
+
+const myAccount = new BankAccount()
+
+myAccount.deposit(200)
+myAccount.deposit(150)
+myAccount.withdraw(50)
+myAccount.withdraw(30)
+myAccount.deposit(100)
 
 
-myAccount.deposit(200);
-myAccount.deposit(150);
-myAccount.withdraw(50);
-myAccount.withdraw(30);
-myAccount.deposit(100);
+function depositMoney(){
+
+const amount = Number(document.getElementById("depositAmount").value)
+
+alert(myAccount.deposit(amount))
+
+}
+
+function withdrawMoney(){
+
+const amount = Number(document.getElementById("withdrawAmount").value)
+
+alert(myAccount.withdraw(amount))
+
+}
+
+function checkBalance(){
+
+document.getElementById("balanceResult").innerText =
+myAccount.checkBalance()
+
+}
+
+function showDeposits(){
+
+document.getElementById("transactionResult").innerText =
+myAccount.listAllDeposits()
+
+}
+
+function showWithdrawals(){
+
+document.getElementById("transactionResult").innerText =
+myAccount.listAllWithdrawals()
+
+}
