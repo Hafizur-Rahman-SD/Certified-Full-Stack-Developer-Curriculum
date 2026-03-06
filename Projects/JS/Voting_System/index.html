@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Travel Poll Voting System</h1>
+
+  <!-- Add Option -->
+  <div class="card">
+    <h2>Add Option</h2>
+
+    <input type="text" id="optionInput" placeholder="Enter country name">
+    <button onclick="addOptionUI()">Add Option</button>
+
+    <p id="optionMessage"></p>
+  </div>
+
+  <!-- Vote -->
+  <div class="card">
+    <h2>Vote</h2>
+
+    <input type="text" id="voteOption" placeholder="Option name">
+    <input type="text" id="voterId" placeholder="Voter ID">
+
+    <button onclick="voteUI()">Vote</button>
+
+    <p id="voteMessage"></p>
+  </div>
+
+  <!-- Results -->
+  <div class="card">
+    <h2>Results</h2>
+
+    <button onclick="showResults()">Show Results</button>
+
+    <pre id="results"></pre>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
